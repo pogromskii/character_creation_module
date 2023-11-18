@@ -1,47 +1,48 @@
 from random import randint
 
 
-def attack(char_name, char_class, attack_point=5):
+def attack(char_name, char_class):
     if char_class == 'warrior':
         return (
-            f'{char_name} нанёс урон противнику равный'
-            f'{attack_point + randint(3, 5)}'
+            f' {char_name} нанёс урон противнику равный'
+            f' {5 + randint(3, 5)}'
         )
     if char_class == 'mage':
         return (
-            f'{char_name} нанёс урон противнику равный ' 
-            f' {attack_point + randint(5, 10)}'
+            f' {char_name} нанёс урон противнику равный'
+            f' {5 + randint(5, 10)}'
         )
     if char_class == 'healer':
-        return (f'{char_name} нанёс урон противнику равный {attack_point}')
+        return (f'{char_name} нанёс урон противнику равный '
+                f'{5 + randint(-3,-1)}')
     return (f'{char_name} не смог атаковать')
 
 
-def defence(char_name, char_class, protect=10):
+def defence(char_name, char_class):
     if char_class == 'warrior':
-        return f'{char_name} блокировал {protect + randint(5, 10)} урона'
+        return f'{char_name} блокировал {10 + randint(5, 10)} ед. урона'
     if char_class == 'mage':
-        return f'{char_name} блокировал {protect + randint(-2, 2)} урона'
+        return f'{char_name} блокировал {10 + randint(-2, 2)} ед. урона'
     if char_class == 'healer':
-        return f'{char_name} блокировал {protect} урона'
+        return f'{char_name} блокировал {10 + randint(2, 5)} ед. урона'
     return f'{char_name} не смог блокировать урон'
 
 
-def special(char_name, char_class, attack_point=5, protect=10):
+def special(char_name, char_class,):
     if char_class == 'warrior':
         return (
-               f'{char_name} применил специальное умение'
+               f' {char_name} применил специальное умение'
                f' «Выносливость {80 + 25}»'
         )
     if char_class == 'mage':
         return (
                f' {char_name} применил специальное умение'
-               f' «Атака {attack_point + 40}»'
+               f' «Атака {5 + 40}»'
         )
     if char_class == 'healer':
         return (
-               f'{char_name} применил специальное умение'
-               f'«Защита {protect + 30}»'
+               f' {char_name} применил специальное умение'
+               f' «Защита {10 + 30}»'
         )
     return (f'{char_name} не применил специальное умение')
 
@@ -60,15 +61,15 @@ def start_training(char_name, char_class, attack_point=5, protect=10):
         ' special — чтобы использовать свою суперсилу.'
     )
     print('Если не хочешь тренироваться, введи команду skip.')
-    cmd = ''
+    cmd = None
     while cmd != 'skip':
         cmd = input('Введи команду: ')
         if cmd == 'attack':
-            print(attack(char_name, char_class, attack_point))
+            print(attack(char_name, char_class))
         if cmd == 'defence':
-            print(defence(char_name, char_class, protect))
+            print(defence(char_name, char_class))
         if cmd == 'special':
-            print(special(char_name, char_class, attack_point, protect))
+            print(special(char_name, char_class))
     return 'Тренировка окончена.'
 
 
