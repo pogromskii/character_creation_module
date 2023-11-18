@@ -25,9 +25,15 @@ def defence(char_name, char_class, protect):
 
 def special(char_name, char_class, attack_point=5, protect=10):
     if char_class == 'warrior':
-        return f'{char_name} применил специальное умение «Выносливость {80 + 25}»'
+        return f'''
+               {char_name} применил специальное умение
+               «Выносливость {80 + 25}»
+        '''
     if char_class == 'mage':
-        return f'{char_name} применил специальное умение «Атака {attack_point + 40}»'
+        return f'''
+               {char_name} применил специальное умение
+               «Атака {attack_point + 40}»
+        '''
     if char_class == 'healer':
         return f'{char_name} применил специальное умение «Защита {protect + 30}»'
 
